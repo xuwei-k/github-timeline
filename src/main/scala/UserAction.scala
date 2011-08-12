@@ -1,4 +1,4 @@
-package github_rss
+package github_timeline
 
 case class UserAction(
   id:UserActionID,

@@ -31,6 +31,8 @@ object BuildGAE extends Build{
           ,"net.kindleit" % "gae-runtime" % gaeSDK 
           ,"org.scalaj"  %% "scalaj-http" % "0.2.8"  
         )
+        ,addCompilerPlugin("org.scala-tools.sxr" % "sxr_2.9.0" % "0.2.7")
+ //       ,scalacOptions <+= { scalaSource in Compile map { "-P:sxr:base-directory:" + _.getParentFile.getParentFile } }
       )
     }
   )

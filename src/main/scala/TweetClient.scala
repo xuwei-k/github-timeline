@@ -1,4 +1,4 @@
-package github_rss
+package github_timeline
 
 import twitter4j._
 import twitter4j.conf._

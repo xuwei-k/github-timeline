@@ -1,4 +1,4 @@
-package github_rss
+package github_timeline
 
 object Googl{
   import scalaj.http._

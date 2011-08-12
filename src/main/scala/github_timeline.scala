@@ -1,5 +1,5 @@
 
-package object github_rss {
+package object github_timeline {
   @inline def allCatchPrintStackTrace(body: => Any){
     try{
       val r = body

@@ -2,7 +2,7 @@
   <cron>
     <url>/1</url>
     <description>1 minute</description>
-    <schedule>every 1 minutes</schedule>
+    <schedule>every 10 minutes</schedule>
     <timezone>Asia/Tokyo</timezone>
   </cron>
 </cronentries>

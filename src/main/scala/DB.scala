@@ -1,4 +1,4 @@
-package github_rss
+package github_timeline
 
 object DB{
   import com.google.appengine.api.datastore._
@@ -6,14 +6,16 @@ object DB{
   
   private val propertyName = "id"
     
-  private val EntityKind = "xuwei_k-followee"
+  private val EntityKind = "github-timeline"
     
   val ds = DatastoreServiceFactory.getDatastoreService
   
   def insert(actions:UserAction*){
+    val d = new java.util.Date
     actions.foreach{c =>
       val e = new Entity(EntityKind)
       e.setProperty(propertyName, c.id )
+      e.setProperty("insert-date", d )
       ds.put(e)
     }
   }

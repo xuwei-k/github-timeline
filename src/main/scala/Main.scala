@@ -1,4 +1,4 @@
-package github_rss
+package github_timeline
 
 import javax.servlet.http._
 
@@ -10,7 +10,7 @@ class Main extends HttpServlet {
     val oldDataIdList = DB.selectAll
     val newData = o.filterNot{a => oldDataIdList.contains(a.id)}
     DB.insert(newData:_*)
-    val client = TweetClient(Settings.MyRSSbotSetting)
+    val client = TweetClient(Settings.TwitterBotSetting)
     newData.foreach{ Thread.sleep(500) ; client.tweet }
   }
 }
