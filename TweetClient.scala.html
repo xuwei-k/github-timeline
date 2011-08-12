@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+			<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8" ></meta>
+        <title>TweetClient.scala</title>
+        <script type="text/javascript" src="jquery-all.js"></script>
+        <script type="text/javascript" src="linked.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css" title="Style"></link>
+    </head>
+    <body>
+        <pre>
+<span class="keyword">package</span> github_timeline
+
+<span class="keyword">import</span> twitter4j._
+<span class="keyword">import</span> twitter4j.conf._
+
+case <span class="keyword">class</span> <a title="class TweetClient extends java.lang.Object with ScalaObject with Product with Serializable" id="32366">TweetClient</a><a href="#32366" title="ScalaObject" class="delimiter">(</a><a title="github_timeline.BotSettings" id="28682">p</a>:<a href="#32360" title="github_timeline.BotSettings">BotSettings</a><span class="delimiter">)</span> <span class="delimiter">{</span>
+  
+  <span class="keyword">val</span> <a title="twitter4j.Twitter" id="28677">t</a> = <span class="delimiter">{</span>
+    <span class="keyword">val</span> <a title="twitter4j.conf.ConfigurationBuilder" id="30725">c</a> = <span title="twitter4j.conf.ConfigurationBuilder" class="keyword">new</span> <span title="twitter4j.conf.ConfigurationBuilder">ConfigurationBuilder</span>
+      <a href="#30725" title="twitter4j.conf.ConfigurationBuilder">c</a>.<span title="(x$1: Boolean)twitter4j.conf.ConfigurationBuilder">setDebugEnabled</span><span class="delimiter">(</span><span title="Boolean(true)" class="keyword">true</span><span class="delimiter">)</span>
+      .<span title="(x$1: java.lang.String)twitter4j.conf.ConfigurationBuilder">setOAuthConsumerKey</span><span class="delimiter">(</span><a href="#28682" title="=&gt; github_timeline.BotSettings">p</a>.<a href="#29514" title="=&gt; String">consumerKey</a><span class="delimiter">)</span>
+      .<span title="(x$1: java.lang.String)twitter4j.conf.ConfigurationBuilder">setOAuthConsumerSecret</span><span class="delimiter">(</span><a href="#28682" title="=&gt; github_timeline.BotSettings">p</a>.<a href="#29515" title="=&gt; String">consumerSecret</a><span class="delimiter">)</span>
+      .<span title="(x$1: java.lang.String)twitter4j.conf.ConfigurationBuilder">setOAuthAccessToken</span><span class="delimiter">(</span><a href="#28682" title="=&gt; github_timeline.BotSettings">p</a>.<a href="#29516" title="=&gt; String">accessToken</a><span class="delimiter">)</span>
+      .<span title="(x$1: java.lang.String)twitter4j.conf.ConfigurationBuilder">setOAuthAccessTokenSecret</span><span class="delimiter">(</span><a href="#28682" title="=&gt; github_timeline.BotSettings">p</a>.<a href="#29517" title="=&gt; String">accessTokenSecret</a><span class="delimiter">)</span>;
+      
+     <span title="(x$1: twitter4j.conf.Configuration)twitter4j.TwitterFactory" class="keyword">new</span> <span title="twitter4j.TwitterFactory">TwitterFactory</span><span class="delimiter">(</span><a href="#30725" title="twitter4j.conf.ConfigurationBuilder">c</a>.<span title="()twitter4j.conf.Configuration">build</span><span class="delimiter">(</span><span class="delimiter">)</span><span class="delimiter">)</span>.<span title="()twitter4j.Twitter">getInstance</span><span class="delimiter">(</span><span class="delimiter">)</span>
+  <span class="delimiter">}</span>
+  
+  <span class="keyword">def</span> <a title="(a: github_timeline.UserAction)Unit" id="28679">tweet</a><span class="delimiter">(</span><a title="github_timeline.UserAction" id="29975">a</a>:<a href="UserAction.scala.html#8161" title="github_timeline.UserAction">UserAction</a><span class="delimiter">)</span><span class="delimiter">{</span>
+    <a href="github_timeline.scala.html#8170" title="(body: =&gt; Any)Unit">allCatchPrintStackTrace</a><span class="delimiter">{</span>
+      <a href="#28677" title="=&gt; twitter4j.Twitter">t</a>.<span title="(x$1: java.lang.String)twitter4j.Status">updateStatus</span><span class="delimiter">(</span><a href="#29975" title="github_timeline.UserAction">a</a>.<a href="UserAction.scala.html#22220" title="=&gt; String">tweetString</a><span class="delimiter">)</span>
+    <span class="delimiter">}</span>
+  <span class="delimiter">}</span>
+  
+<span class="delimiter">}</span>
+
+case <span class="keyword">class</span> <a title="class BotSettings extends java.lang.Object with ScalaObject with Product with Serializable" id="32360">BotSettings</a><a href="#32360" title="ScalaObject" class="delimiter">(</a>
+    <a title="String" id="29514">consumerKey</a>:<span title="String">String</span>,
+    <a title="String" id="29515">consumerSecret</a>:<span title="String">String</span>,
+    <a title="String" id="29516">accessToken</a>:<span title="String">String</span>,
+    <a title="String" id="29517">accessTokenSecret</a>:<span title="String">String</span>
+<span class="delimiter">)</span><span class="delimiter">{</span><span class="delimiter">}</span>
+
+
+        </pre>
+    </body>
+</html>
